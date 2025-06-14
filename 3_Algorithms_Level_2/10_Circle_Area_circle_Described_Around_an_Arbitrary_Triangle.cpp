@@ -30,7 +30,7 @@ int main () {
 
     p = (a + b + c) / 2 ;
 
-    cout << "\n______________________________\n";
+    cout << "\n________________#______________\n";
 
     cout << "\nArea = " << Circle_Area_circle_Described_Around_an_Arbitrary_Triangle ( a , b , c , p ) << endl;
 }
