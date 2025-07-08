@@ -42,7 +42,7 @@ void calcTwoNumber (float Num1 , float Num2 , char operationType) {
 
     } else if ( operationType == '*') {
 
-        cout << Num1 << " * " << Num2 << " = " << Num1 - Num2 << endl;
+        cout << Num1 << " * " << Num2 << " = " << Num1 * Num2 << endl;
     } else if (operationType == '/') { 
 
         cout << Num1 << " / " << Num2 << " = " << Num1 / Num2 << endl;
