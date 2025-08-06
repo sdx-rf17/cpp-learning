@@ -1,56 +1,49 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-int ReadPositiveNumber(string messages){
+int ReadPositiveNumber(string message)
+{
 
-    int number = 0;
-    do {
-        cout << messages << "\n: ";
+    int number;
+    do
+    {
+        cout << message << " \n: ";
         cin >> number;
-    }while(number<= 0);
+    } while (number <= 0);
 
     return number;
 }
 
-int Power(int base, int exponent) {
-    int result = 1;
-    for (int i = 0; i < exponent; ++i)
-        result *= base;
-    return result;
-}
+bool isPerfectNumber(int number)
+{
+    int sum = 0;
+    for (int c = 1; c < number; c++)
+    {
 
-
-bool isPrime(int num) {
-    if (num <= 1) return false; 
-    if (num == 2) return true; 
-    if (num % 2 == 0) return false;
-
-    for (int i = 3; i <= sqrt(num); i += 2) {
-        if (num % i == 0) return false;
+        if (number % c == 0)
+            sum += c;
     }
-    return true;
+
+    return number == sum;
 }
 
-void PrintPerfectNumber(int PositiveNumber) {
-    for (int p = 2; ; ++p) {
-        if (isPrime(p)) {
-            int mersenne = Power(2, p) - 1;
-            if (isPrime(mersenne)) {
-                int perfect = Power(2, p - 1) * mersenne;
-                if (perfect == PositiveNumber) {
-                    cout << PositiveNumber << " is a perfect number." << endl;
-                    return;
-                } else if (perfect > PositiveNumber) {
-                    cout << PositiveNumber << " is not a perfect number." << endl;
-                    return;
-                }
-            }
-        }
+void printResult(int number)
+{
+
+    if (isPerfectNumber(number))
+    {
+
+        cout << number << " is a perfect number." << endl;
+    }
+    else
+    {
+
+        cout << number << " is not a perfect number." << endl;
     }
 }
 
-int main() { 
+int main()
+{
 
-    PrintPerfectNumber(ReadPositiveNumber("Please enter a positive number"));
+    printResult(ReadPositiveNumber("Please enter a positive number"));
 }
