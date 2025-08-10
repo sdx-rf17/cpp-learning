@@ -20,9 +20,8 @@ void PrintDigits(int number) {
         Remainder = number % 10;
         number /= 10;
 
-        cout << Remainder ;
+        cout << Remainder << "\n";
     }
-    
     cout << endl;
 }
 
