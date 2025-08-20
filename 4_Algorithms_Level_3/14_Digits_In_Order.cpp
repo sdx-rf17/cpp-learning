@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-int ReadPositiveNumber(string message) {
-    int number ;
+unsigned long long ReadPositiveNumber(string message) {
+    unsigned long long number ;
 
     do {
         cout << message << "\n: ";
@@ -12,8 +12,8 @@ int ReadPositiveNumber(string message) {
     return number;
 }
 
-int ReverseNumber(int number) {
-    int Remainder = 0,reversed = 0;
+unsigned long long ReverseNumber(unsigned long long number) {
+    unsigned long long Remainder = 0,reversed = 0;
 
     while(number > 0) {
 
