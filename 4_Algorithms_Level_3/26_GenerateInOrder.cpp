@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <limits>
 #include <ctime>
 using namespace std;
 
@@ -54,32 +55,46 @@ int main(){
 void PrintResult(){
     int c;
 
+    do{
     cout << "\n1.Small Letter\n";
     cout << "2.Capital Letter\n";
     cout << "3.Special Character\n";
     cout << "4.Digit\n";
+    cout << "(-1).Exit\n";
     cout << "Enter your choice :: ";
-    cin >> c;
+
+    while(!(cin >> c)){
+        //Invalid input: clear and ignore
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input .Try again..\n";
+        continue;
+    }
 
     switch(c){
         case 1:{
-            cout << GetRandomChar(EnCharType::SmallLetter) << endl;
+            cout << "\n< " << GetRandomChar(EnCharType::SmallLetter) <<  " >" << endl; // return small letter
             break;
         }
         case 2:{
-            cout << GetRandomChar(EnCharType::CapitalLetter) << endl;
+            cout << "\n< " << GetRandomChar(EnCharType::CapitalLetter) <<  " >" << endl; // return capital letter
             break;
         }
         case 3:{
-            cout << GetRandomChar(EnCharType::SpecialCharacter) << endl;
+            cout << "\n< " << GetRandomChar(EnCharType::SpecialCharacter) <<  " >" << endl; // return special character
             break;
         }
         case 4:{
-            cout << GetRandomChar(EnCharType::Digit) << endl;
+            cout << "\n< " << GetRandomChar(EnCharType::Digit) <<  " >" << endl; // return a digit
             break;
         }
-        default:{
-            cout << "Invalid choice." << endl;
+        default: {
+
+            if(c != -1 || c > 5 ) cout << "Invalid choice. Try again\n";
         }
+            
+            
+       
     }
+    }while( c != -1 );
 }
