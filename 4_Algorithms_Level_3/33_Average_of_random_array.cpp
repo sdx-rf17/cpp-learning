@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int ReadPositiveNumber(string message){
+    
+    int number = 0;
+    do{
+        cout << message << ": ";
+        cin >> number;
+    }while(number <= 0);
+
+    return number;
+} 
+
+int RandomNumber(int From , int To){
+
+    int randomNumber = rand() % (To - From + 1) + From;
+
+    return randomNumber;
+
+}
+
+void FillArrayWithRandomNumber(int* array, int length){
+
+    
+    for(int c = 0 ; c < length ; c++){
+
+        array[c] = RandomNumber(0 , 100);
+    }
+
+    cout << endl;
+}
+// print all array elements
+void get_ArrayElements(int* array, int length){
+
+    cout <<"Array: ";
+
+    for(int c = 0 ; c < length ; c++){
+
+        cout  << array[c] << " ";
+    }
+}
+
+void get_TheAverageOfElements(int* array, int length){
+
+
+    int theSum = 0;
+	
+    for(int c = 0 ; c < length ; c++){
+
+        theSum += array[c];
+    }
+
+    // return the averge into float number added (float)
+    float Average =  (  theSum / (float) length) ;
+
+    cout << "\nthe Average of the array elemnts: " << Average << endl;
+}
+
+int main() {
+    srand((unsigned) time(NULL));
+
+    int length = ReadPositiveNumber("Enter number of element");
+    int array[length];
+
+    FillArrayWithRandomNumber(array , length);
+    get_ArrayElements(array , length);
+    get_TheAverageOfElements(array , length);
+
+}
