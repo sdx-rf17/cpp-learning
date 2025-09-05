@@ -19,7 +19,6 @@ string GeneratePassword(int length){
     string password;
     string characters = "ABCDEFGIJKLMNOPQRSTVWXYZ123456789";
     int charSize = characters.size();
-    srand(time(NULL));
     int randomIndex;
     for (int c = 0 ; c <= length ; c++){
 
@@ -32,6 +31,7 @@ string GeneratePassword(int length){
 
 int main() {
     
+    srand((unsigned) time(NULL));
     int length = ReadPositiveNumber("Enter the length of the password");
 
     cout << "\nYour Password :: " << GeneratePassword(length) << endl;
