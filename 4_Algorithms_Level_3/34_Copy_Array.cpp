@@ -34,7 +34,6 @@ void FillArrayWithRandomNumber(int* array, int length){
 // print all array elements
 void get_ArrayElements(int* array, int length){
 
-    cout <<"Original Array: ";
 
     for(int c = 0 ; c < length ; c++){
 
@@ -42,25 +41,12 @@ void get_ArrayElements(int* array, int length){
     }
 }
 
-void CopyArray(int* array, int length){
-
-    int copyArray[length];
+void CopyArray(int* cp_array ,int* array, int length){
 
     for(int c = 0 ; c < length ; c++){
 
-        copyArray[c] = array[c];
+        cp_array[c] = array[c];
     }
-
-    // get array elements
-
-    cout << "\n" <<"Second Array: ";
-
-    for(int c = 0 ; c < length ; c++){
-
-        cout  << copyArray[c] << " ";
-    }
-
-    cout << endl ;
     
 }
 
@@ -70,8 +56,14 @@ int main() {
 
     int length = ReadPositiveNumber("Enter number of elements");
     int array[length];
+    int cp_array[length];
 
     FillArrayWithRandomNumber(array , length);
+    
+    cout <<"Original Array: ";
     get_ArrayElements(array , length);
-    CopyArray(array , length);
+    
+    CopyArray(cp_array, array , length);
+    cout << "\n" <<"Second Array: ";
+    get_ArrayElements(array , length);
 }
