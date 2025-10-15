@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+int ReadPositiveNumber(string message){
+    int number;
+    do{
+        cout << message << ": ";
+        cin >> number;
+    }while(number <= 0);
+
+    return number;
+}
+
+int randomNumber(int From , int To) {
+
+    int rand_number = rand() % (To - From + 1) + From ;
+    return rand_number;
+}
+
+void fillArrayWithRandomNumbers(int arr[100] , int arrLength) {
+
+    for (int c = 0 ; c < arrLength ; c++){
+
+        arr[c] = randomNumber(0 , 100);
+    }
+}
+
+bool IsOddNumber(int number) {
+    return (number % 2 != 0);
+}
+
+void printOddNumbersCount(int arr[100] , int arrLength){
+
+    int counter = 0;
+    for (int i = 0 ; i < arrLength ; i++) {
+
+        if (IsOddNumber(arr[i])) counter++;
+    }
+
+    cout << "Odd numbers count is: " << counter << endl;
+}
+
+void printArrayElements(int arr[100] , int arrLength) {
+
+    for (int c = 0 ; c < arrLength ; c++) {
+
+        cout << arr[c] << " ";
+    }
+
+    cout << "\n";
+}
+
+int main() {
+    srand((unsigned) time (NULL));
+
+    int arr[100],
+        arrLength = ReadPositiveNumber("Enter number of elements");
+
+    fillArrayWithRandomNumbers( arr , arrLength);
+
+    cout << "\nArray Elements: ";
+    printArrayElements( arr , arrLength);
+    printOddNumbersCount( arr, arrLength);
+
+
+}
