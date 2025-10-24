@@ -19,8 +19,9 @@ string GetOpTypeSymbol(enOperationType OpType){
         return "*";
         case enOperationType::Div:
         return "/";
+        default:
+            return "Mix";
     }
-        return "Mix";
 
 }
 
@@ -239,6 +240,8 @@ string GetFinalResultsText(bool Pass){
 }
 
 void PrintQuizzResults(stQuizz Quizz){
+
+    SetScreenColor(Quizz.isPass);
 
     cout << "\n";
     cout << "____________________________\n\n";
