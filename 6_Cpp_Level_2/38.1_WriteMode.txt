@@ -1,2 +1,0 @@
-Welcome to C++'s Write Mode 
-This is the another file line 

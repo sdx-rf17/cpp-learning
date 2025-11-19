@@ -5,7 +5,7 @@ using namespace std;
 int main() {
 
     fstream file_object;
-    file_object.open("38.1_WriteMode.txt", ios::out); //Write Mode
+    file_object.open("my_file.txt", ios::out); //Write Mode
 
     if(file_object.is_open()){
 
