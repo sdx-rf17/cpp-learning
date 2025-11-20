@@ -53,9 +53,9 @@ void deleteRecordFromFile(string f_name , string record){
         if(content == record){
             content = "";
         }
-
-        saveVectorToFile(f_name , vFileContent);
     }
+
+    saveVectorToFile(f_name , vFileContent);
 }
 
 void PrintFileContent(string f_name){
